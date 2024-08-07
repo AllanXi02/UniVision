@@ -1,4 +1,133 @@
 # UniVision - 初期规划第二版 - 已完成初始(基础功能搭建)
+---
+
+# Driver Efficiency Analysis 司机效率分析
+
+This project aims to analyze and visualize driver efficiency using data from multiple Excel files. The primary focus is on tracking and displaying trends in completion rates and other key metrics for specific drivers over time. The visualization includes line charts, bar charts, and pie charts, allowing for comprehensive insights into driver performance.
+
+本项目旨在利用多个Excel文件中的数据分析和可视化司机效率。主要关注点是跟踪和显示特定司机的完成率及其他关键指标随时间的趋势变化。可视化内容包括折线图、柱状图和饼图，提供对司机表现的全面洞察。(之后会逐步加入对于DSP以及各个站点的综合分析,但会依据公司职员层级设置不同观测权限,保证公司数据安全).
+
+## Project Overview 项目概述
+
+The project processes data from Excel files containing driver performance metrics. The primary data points include `Completion Rate`, `Last Update`, and various status codes. The visualizations are interactive, allowing users to navigate between different charts using buttons.
+
+本项目处理包含司机表现指标的Excel文件中的数据。主要数据点包括`完成率`、`最后更新时间`以及各种状态代码。可视化内容具有交互性，用户可以通过按钮在不同图表之间切换。
+
+## Features 功能
+
+1. **Completion Rate Trend Line Chart 完成率趋势折线图**:
+   - Displays the trend of completion rates for a specific driver over time.
+   - Data is consolidated from multiple files to show changes in performance.
+
+   显示特定司机随时间变化的完成率趋势。数据来自多个文件，展示表现的变化。
+
+2. **Completion Rate Bar Chart 完成率柱状图**:
+   - Shows the completion rates for all drivers, highlighting those below a specific threshold with a different color.
+
+   显示所有司机的完成率，并以不同颜色突出显示低于特定阈值的司机。
+
+3. **Driver Status Distribution Pie Chart 司机状态分布饼图**:
+   - Illustrates the distribution of various statuses for a specific driver, providing insight into the nature of tasks handled.
+
+   展示特定司机的各种状态分布，提供处理任务性质的见解。
+
+## Data Analysis and Visualization 数据分析与可视化
+
+### Key Data Points 关键数据点
+- **Completion Rate 完成率**: Percentage indicating the completion of assigned tasks. 表示分配任务完成情况的百分比。
+- **Last Update 最后更新时间**: The date and time of the last recorded update for a driver. 司机的最后一次记录更新时间。(这里需要更准确的批次当天发货日期信息, 需要更加精准的数据 -⚠️ **Database 读取权限(无须写入)**
+- **Status Codes 状态代码**: Various codes representing different states or actions in the delivery process (e.g., `200`, `202`, `211`, etc.). 表示配送过程中不同状态或操作的各种代码（如`200`、`202`、`211`等）。
+
+### Analytical Focus 分析重点
+1. **Trend Analysis 趋势分析**:
+   - Observing how completion rates change over time for specific drivers.
+   - Understanding factors contributing to changes in performance.
+
+   观察特定司机的完成率随时间的变化。理解导致表现变化的因素。
+
+2. **Performance Comparison 表现比较**:
+   - Comparing completion rates across drivers to identify top performers and areas needing improvement.
+
+   比较不同司机的完成率，识别表现优异者和需要改进的领域。(获取整体数据后加入整体对于城市间DSP的整体分析✅)
+
+3. **Status Analysis 状态分析**:
+   - Analyzing the distribution of various status codes to understand the common issues or states in the delivery process.
+
+   分析各种状态代码的分布，了解配送过程中的常见问题或状态。
+
+## Challenges and Solutions 挑战与解决方案
+
+### Challenges 挑战
+1. **Data Cleaning and Integration 数据清理与整合**:
+   - Handling missing values and ensuring consistency across multiple data sources.
+   - Merging data from different Excel sheets with potentially varying formats.
+
+   处理缺失值并确保多个数据源之间的一致性。合并格式可能不同的Excel工作表中的数据。
+
+2. **Visualization Accuracy 可视化准确性**:
+   - Ensuring that charts accurately reflect data trends, especially when handling date-time data and percentages.
+
+   确保图表准确反映数据趋势，特别是在处理日期时间数据和百分比时。
+
+3. **Interactive Display 交互显示**:
+   - Implementing an intuitive way for users to switch between different visualizations.
+
+   实现一种直观的方式，供用户在不同的可视化之间切换。
+
+### Solutions 解决方案
+1. **Data Cleaning 数据清理**:
+   - Implemented functions to clean and standardize completion rate data.
+   - Used `pandas` to handle missing values and format inconsistencies.
+
+   实施了清理和标准化完成率数据的函数。使用`pandas`处理缺失值和格式不一致问题。
+
+2. **Accurate Plotting 准确绘图**:
+   - Utilized `matplotlib` to plot data accurately, handling date-time conversions and percentage calculations.
+
+   使用`matplotlib`准确绘制数据，处理日期时间转换和百分比计算。
+
+3. **Interactive Controls 交互控制**:
+   - Added buttons for navigating between charts, enhancing the user experience with interactive elements.
+
+   添加了在图表之间导航的按钮，通过交互元素增强用户体验。
+
+## How to Run 如何运行
+
+1. **Dependencies 依赖**:
+   - Python packages: `pandas`, `matplotlib`
+   - Ensure the required packages are installed in your environment.
+
+   确保在您的环境中安装所需的软件包。
+
+2. **Execution 执行**:
+   - Run the main script (`main.py`) to start the visualization interface.
+   - Use the buttons to navigate between different charts.
+
+   运行主脚本（`main.py`）启动可视化界面。使用按钮在不同图表之间导航。
+
+3. **Data Files 数据文件**:
+   - Place the relevant Excel files in the specified directory.
+   - Update the file paths in the script if necessary.
+
+   将相关的Excel文件放在指定目录中。如有必要，更新脚本中的文件路径。
+
+## Future Improvements 未来改进
+
+- **Additional Metrics 额外指标**: Incorporate more metrics for a comprehensive analysis of driver performance. 纳入更多指标以全面分析司机表现。
+- **Enhanced Interactivity 增强交互性**: Add more interactive features, such as zooming and filtering data. 添加更多交互功能，如缩放和过滤数据。
+- **Automated Updates 自动更新**: Set up a system for automatic updates and data processing as new data becomes available. 建立一个系统，以便在新数据可用时进行自动更新和数据处理。
+
+## Contribution 贡献
+
+Contributions are welcome! Please fork the repository and submit a pull request with your changes. For major changes, please open an issue first to discuss what you would like to change.
+
+欢迎贡献！请fork此仓库并提交您的更改的pull request。如有重大更改，请先打开issue讨论您想要更改的内容。
+请联系:xiyue1832@gmail.com
+
+
+
+
+------------------------------------------------------------------
 ### Local Python Setup Decision 本地Python环境选择
 
 In the initial stages of the project, the decision was made to utilize a local Python setup rather than relying solely on web-based solutions such as Jupyter Notebook. This choice was driven by several key considerations:
