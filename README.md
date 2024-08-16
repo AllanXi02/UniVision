@@ -1,3 +1,12 @@
+Updates On request designing : 
+Daily/7-Day DSP and Driver Performance Analysis Curve:
+
+Goal: Automate and generate performance analysis curves for each DSP and driver.
+Action: Begin with Unimap and Shenghu to check if a similar tool is already in development.
+Approach: If they aren't working on this, start developing the performance analysis tool by gathering all available DSP and driver data for daily/7-day performance.
+Integration: Investigate Unimap’s underlying data and logic structure for potential collaboration.
+
+
 # UniVision - 初期规划第二版 - 已完成初始(基础功能搭建)
 ---
 
